@@ -39,14 +39,17 @@ h1 {
     border-radius: 50%;
 }
 
+.gameContainer {
+    display: flex;
+}
 .board {
+    margin: 100px auto;
     display: grid;
     grid-template-rows: repeat(10, 1fr);
     grid-template-columns: repeat(10, 1fr);
     grid-gap: 2px;
     height: 500px;
     width: 500px;
-    margin: 100px;
     background-color: darkgrey;
 }
 
@@ -65,4 +68,12 @@ h1 {
         0 0 3px 2px #fff,  /* inner white */
         0 0 5px 3px #f0f, /* middle magenta */
         0 0 7px 3px #0ff;
+
+button {
+    height: min-content;
+    padding: 10px;
+    border: 2px solid darkgrey;
+    background-color: black;
+    color: darkgrey;
+    align-self: center;
 }
