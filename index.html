@@ -133,12 +133,14 @@
                    $(this).html('');
                }
            })
+
+           // BUG: when the lightswitch is toggled, new dots should be added with the .lightup class set
+
            // toggle glow effect when the lightswitch is pressed
            $('button').on('click', function() {
                $('.dot').toggleClass('lightup');
            })
         })
-
     </script>
     
 </body>
