@@ -37,6 +37,7 @@ h1 {
     max-height: 50px;
     background-color: hotpink;
     border-radius: 50%;
+    opacity: 50%;
 }
 
 .gameContainer {
@@ -68,6 +69,8 @@ h1 {
         0 0 3px 2px #fff,  /* inner white */
         0 0 5px 3px #f0f, /* middle magenta */
         0 0 7px 3px #0ff;
+        opacity: 100%;
+}
 
 button {
     height: min-content;
