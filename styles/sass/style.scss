@@ -1,0 +1,56 @@
+@import 'setup';
+
+body {
+    background-color: black;
+    font-size: 125%;
+}
+
+.wrapper {
+    max-width: 1200;
+    width: 80%;
+    margin: 0 auto;
+}
+
+h1 {
+    color: white;
+    font-size: 10rem;
+}
+
+.dot {
+    width: 40%;
+    height: 40%;
+    min-width: 5px;
+    max-width: 50px;
+    min-height: 10px;
+    max-height: 50px;
+    background-color: hotpink;
+    border-radius: 50%;
+}
+
+.board {
+    display: grid;
+    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: repeat(10, 1fr);
+    grid-gap: 2px;
+    height: 500px;
+    width: 500px;
+    margin: 100px;
+    background-color: darkgrey;
+}
+
+.square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    height: 100%;
+    width: 100%;
+}
+
+.lightup {
+    /* glow effect inspired by https://codersblock.com/blog/creating-glow-effects-with-css/ */
+    box-shadow:
+        0 0 3px 2px #fff,  /* inner white */
+        0 0 5px 3px #f0f, /* middle magenta */
+        0 0 7px 3px #0ff;
+}
