@@ -14,6 +14,19 @@
     </header>
     <div class="wrapper">
         <div class="gameContainer">
+            <div class="colorSelector">
+                <ul>
+                    <li><p>choose a colour</p></li>
+                    <li class="colorChoice red active" id="red"></li>
+                    <li class="colorChoice orange" id="orange"></li>
+                    <li class="colorChoice yellow" id="yellow"></li>
+                    <li class="colorChoice green" id="green"></li>
+                    <li class="colorChoice blue" id="blue"></li>
+                    <li class="colorChoice purple" id="purple"></li>
+                    <li class="colorChoice pink" id="pink"></li>
+                    <li class="colorChoice white" id="white"></li>
+                </ul>
+            </div>
             <div class="board">
                 <!-- TODO: is there a more elegant way to do this in html? could populate with js instead, or just infer what "square" is being clicked based on the coordinates of the click event-->
                 <div class="square"></div>
@@ -117,6 +130,7 @@
                 <div class="square"></div>
                 <div class="square"></div>
             </div>
+            <!-- TODO: -->
             <button>toggle lights</button>
     </div>
 
@@ -124,17 +138,25 @@
     <script src='https://code.jquery.com/jquery-3.5.1.min.js'integrity='sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0='crossorigin='anonymous'></script>
     <script>
         $(document).ready(function() {
+            // define a variable that tracks the user's color choice
+            let currentColor = 'red';
+            $('.colorChoice').on('click', function() {
+                $('.colorChoice.active').removeClass('active');
+                $(this).addClass('active');
+                currentColor = $(this).attr("id");
+            })
+
             // add or remove a dot when user clicks on a square
            $('.square').on('click', function() {
                if ($(this).children().length === 0) {
-                $(this).html('<div class="dot"><div>');
+                $(this).html(`<div class="dot ${currentColor}"><div>`);
                }
                else {
                    $(this).html('');
                }
            })
 
-           // BUG: when the lightswitch is toggled, new dots should be added with the .lightup class set
+           // BUG: when the lightswitch is toggled, new dots should appear with .lightup style applied
 
            // toggle glow effect when the lightswitch is pressed
            $('button').on('click', function() {

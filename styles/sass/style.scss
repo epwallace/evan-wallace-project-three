@@ -42,7 +42,12 @@ h1 {
 
 .gameContainer {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
+
+/* lite bride grid */
 .board {
     margin: 100px auto;
     display: grid;
@@ -62,6 +67,40 @@ h1 {
     height: 100%;
     width: 100%;
 }
+
+/* color choices */
+.colorSelector {
+    flex-basis: 100%;
+}
+
+.colorSelector ul {
+    color: darkgrey;
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    margin: 50px auto;
+}
+
+.colorChoice {
+    margin: 5px;
+    width: 30px;
+    height: 30px;
+
+    &.active,
+    &:hover {
+        border: 2px solid darkgrey;
+    }
+}
+
+
+.red { background-color: red; }
+.orange { background-color: orange; }
+.yellow { background-color: yellow; }
+.green { background-color: lightgreen; }
+.blue { background-color: lightblue; }
+.purple { background-color: rebeccapurple; }
+.pink { background-color: hotpink; }
+.white { background-color: white; }
 
 .lightup {
     /* glow effect inspired by https://codersblock.com/blog/creating-glow-effects-with-css/ */

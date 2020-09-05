@@ -232,9 +232,28 @@ body {
   margin: 0 auto;
 }
 
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 40vh;
+  background-color: #000000;
+  /* background by SVGBackgrounds.com */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='30' viewBox='0 0 1000 120'%3E%3Cg fill='none' stroke='%23222' stroke-width='10' %3E%3Cpath d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3C/g%3E%3C/svg%3E");
+}
+
 h1 {
   color: white;
-  font-size: 10rem;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2.5rem;
+  width: 60%;
+  text-align: center;
 }
 
 .dot {
@@ -246,9 +265,26 @@ h1 {
   max-height: 50px;
   background-color: hotpink;
   border-radius: 50%;
+  opacity: 50%;
 }
 
+.gameContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+/* lite bride grid */
 .board {
+  margin: 100px auto;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: (1fr)[10];
@@ -258,7 +294,6 @@ h1 {
   grid-gap: 2px;
   height: 500px;
   width: 500px;
-  margin: 100px;
   background-color: darkgrey;
 }
 
@@ -277,8 +312,81 @@ h1 {
   width: 100%;
 }
 
+/* color choices */
+.colorSelector {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+}
+
+.colorSelector ul {
+  color: darkgrey;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 60%;
+  margin: 50px auto;
+}
+
+.colorChoice {
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+}
+
+.colorChoice.active, .colorChoice:hover {
+  border: 2px solid darkgrey;
+}
+
+.red {
+  background-color: red;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.green {
+  background-color: lightgreen;
+}
+
+.blue {
+  background-color: lightblue;
+}
+
+.purple {
+  background-color: rebeccapurple;
+}
+
+.pink {
+  background-color: hotpink;
+}
+
+.white {
+  background-color: white;
+}
+
 .lightup {
   /* glow effect inspired by https://codersblock.com/blog/creating-glow-effects-with-css/ */
   -webkit-box-shadow: 0 0 3px 2px #fff, 0 0 5px 3px #f0f, 0 0 7px 3px #0ff;
           box-shadow: 0 0 3px 2px #fff, 0 0 5px 3px #f0f, 0 0 7px 3px #0ff;
+  opacity: 100%;
+}
+
+button {
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  padding: 10px;
+  border: 2px solid darkgrey;
+  background-color: black;
+  color: darkgrey;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
