@@ -2,7 +2,9 @@
 
 body {
     background-color: black;
+    color: darkgray;
     font-size: 125%;
+    font-family: 'Lobster',
 }
 
 .wrapper {
@@ -10,16 +12,19 @@ body {
     width: 80%;
     margin: 0 auto;
 }
+.svgBackground {
+    background-color: #000000;
+     /* background by SVGBackgrounds.com */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='30' viewBox='0 0 1000 120'%3E%3Cg fill='none' stroke='%23222' stroke-width='10' %3E%3Cpath d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3C/g%3E%3C/svg%3E");
+}
 
 header {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 40vh;
-    background-color: #000000;
-     /* background by SVGBackgrounds.com */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='30' viewBox='0 0 1000 120'%3E%3Cg fill='none' stroke='%23222' stroke-width='10' %3E%3Cpath d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3C/g%3E%3C/svg%3E");
 }
+
 h1 {
     color: white;
     font-family: 'Press Start 2P', cursive;
@@ -41,14 +46,15 @@ h1 {
 }
 
 .gameContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: auto auto;
 }
 
 /* lite bride grid */
 .board {
+    grid-row: 1 / span 4;
+    grid-column: 1 / span 1;
     margin: 100px auto;
     display: grid;
     grid-template-rows: repeat(10, 1fr);
@@ -57,6 +63,7 @@ h1 {
     height: 500px;
     width: 500px;
     background-color: darkgrey;
+    border: 2px solid darkgray;
 }
 
 .square {
@@ -69,16 +76,25 @@ h1 {
 }
 
 /* color choices */
-.colorSelector {
-    flex-basis: 100%;
+.colorSelectionPanel {
+    grid-row: 2 / span 1;
+    grid-column: 2 / span 1;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px;
+    border: 2px solid darkgray;
+    font-size: 2rem;
+
 }
 
-.colorSelector ul {
-    color: darkgrey;
-    display: flex;
-    justify-content: space-around;
-    width: 60%;
-    margin: 50px auto;
+.colorSelectionPanel ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    width: min-content;
 }
 
 .colorChoice {
@@ -112,10 +128,17 @@ h1 {
 }
 
 button {
+    grid-row: 3 / span 1;
+    grid-column: 2 / span 1;
+
     height: min-content;
-    padding: 10px;
+    padding: 20px;
+    border: 0;
     border: 2px solid darkgrey;
     background-color: black;
     color: darkgrey;
+    font-family: 'Lobster', cursive;
     align-self: center;
+    font-size: 2rem;
+    text-align: left;
 }
