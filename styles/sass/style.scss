@@ -108,22 +108,27 @@ h1 {
     }
 }
 
+@mixin dotColor($color) {
+    background-color: $color;
+    color: $color;  // provides default box-shadow color
 
-.red { background-color: red; }
-.orange { background-color: orange; }
-.yellow { background-color: yellow; }
-.green { background-color: lightgreen; }
-.blue { background-color: lightblue; }
-.purple { background-color: rebeccapurple; }
-.pink { background-color: hotpink; }
-.white { background-color: white; }
+}
+
+.red { @include dotColor(red); }
+.orange { @include dotColor(orange); }
+.yellow { @include dotColor(yellow); }
+.green { @include dotColor(lime); }
+.blue { @include dotColor(cyan); }
+.purple { @include dotColor(rebeccapurple); }
+.pink { @include dotColor(fuchsia); }
+.white { @include dotColor(white); }
 
 .lightup {
     /* glow effect inspired by https://codersblock.com/blog/creating-glow-effects-with-css/ */
     box-shadow:
-        0 0 3px 2px #fff,  /* inner white */
-        0 0 5px 3px #f0f, /* middle magenta */
-        0 0 7px 3px #0ff;
+        0 0 3px 2px,
+        0 0 5px 3px white,
+        0 0 7px 3px;
         opacity: 100%;
 }
 
