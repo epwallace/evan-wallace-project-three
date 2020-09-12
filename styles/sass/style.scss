@@ -47,13 +47,13 @@ h1 {
 
 .gameContainer {
     display: grid;
-    grid-template-rows: repeat(4, 1fr);
-    grid-template-columns: auto auto;
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: 5fr 2fr;
 }
 
 /* lite bride grid */
 .board {
-    grid-row: 1 / span 4;
+    grid-row: 1 / span 5;
     grid-column: 1 / span 1;
     margin: 100px auto;
     display: grid;
@@ -79,6 +79,7 @@ h1 {
 .colorSelectionPanel {
     grid-row: 2 / span 1;
     grid-column: 2 / span 1;
+    height: min-content;
 
     display: flex;
     justify-content: space-between;
@@ -86,6 +87,7 @@ h1 {
 
     padding: 20px;
     border: 2px solid darkgray;
+    border-radius: 20px;
     font-size: 2rem;
 
 }
@@ -132,18 +134,18 @@ h1 {
         opacity: 100%;
 }
 
-button {
-    grid-row: 3 / span 1;
+.lightswitchContainer {
+    grid-row: 4 / span 1;
     grid-column: 2 / span 1;
 
     height: min-content;
     padding: 20px;
-    border: 0;
     border: 2px solid darkgrey;
+    border-radius: 20px;
     background-color: black;
-    color: darkgrey;
-    font-family: 'Lobster', cursive;
-    align-self: center;
-    font-size: 2rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     text-align: left;
 }
