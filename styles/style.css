@@ -223,13 +223,21 @@ textarea {
 
 body {
   background-color: black;
+  color: darkgray;
   font-size: 125%;
+  font-family: "Lobster";
 }
 
 .wrapper {
   max-width: 1200;
   width: 80%;
   margin: 0 auto;
+}
+
+.svgBackground {
+  background-color: #000000;
+  /* background by SVGBackgrounds.com */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='30' viewBox='0 0 1000 120'%3E%3Cg fill='none' stroke='%23222' stroke-width='10' %3E%3Cpath d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 header {
@@ -243,9 +251,6 @@ header {
       -ms-flex-align: center;
           align-items: center;
   height: 40vh;
-  background-color: #000000;
-  /* background by SVGBackgrounds.com */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='30' viewBox='0 0 1000 120'%3E%3Cg fill='none' stroke='%23222' stroke-width='10' %3E%3Cpath d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 h1 {
@@ -269,21 +274,22 @@ h1 {
 }
 
 .gameContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (1fr)[5];
+      grid-template-rows: repeat(5, 1fr);
+  -ms-grid-columns: 5fr 2fr;
+      grid-template-columns: 5fr 2fr;
 }
 
 /* lite bride grid */
 .board {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 5;
+  grid-row: 1 / span 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / span 1;
   margin: 100px auto;
   display: -ms-grid;
   display: grid;
@@ -295,6 +301,7 @@ h1 {
   height: 500px;
   width: 500px;
   background-color: darkgrey;
+  border: 2px solid darkgray;
 }
 
 .square {
@@ -313,20 +320,41 @@ h1 {
 }
 
 /* color choices */
-.colorSelector {
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
-}
-
-.colorSelector ul {
-  color: darkgrey;
+.colorSelectionPanel {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2 / span 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / span 1;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  width: 60%;
-  margin: 50px auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px;
+  border: 2px solid darkgray;
+  border-radius: 20px;
+  font-size: 2rem;
+}
+
+.colorSelectionPanel ul {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: (1fr)[2];
+      grid-template-rows: repeat(2, 1fr);
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
 }
 
 .colorChoice {
@@ -341,52 +369,94 @@ h1 {
 
 .red {
   background-color: red;
+  color: red;
 }
 
 .orange {
   background-color: orange;
+  color: orange;
 }
 
 .yellow {
   background-color: yellow;
+  color: yellow;
 }
 
 .green {
-  background-color: lightgreen;
+  background-color: lime;
+  color: lime;
 }
 
 .blue {
-  background-color: lightblue;
+  background-color: cyan;
+  color: cyan;
 }
 
 .purple {
   background-color: rebeccapurple;
+  color: rebeccapurple;
 }
 
 .pink {
-  background-color: hotpink;
+  background-color: fuchsia;
+  color: fuchsia;
 }
 
 .white {
   background-color: white;
+  color: white;
 }
 
 .lightup {
   /* glow effect inspired by https://codersblock.com/blog/creating-glow-effects-with-css/ */
-  -webkit-box-shadow: 0 0 3px 2px #fff, 0 0 5px 3px #f0f, 0 0 7px 3px #0ff;
-          box-shadow: 0 0 3px 2px #fff, 0 0 5px 3px #f0f, 0 0 7px 3px #0ff;
+  -webkit-box-shadow: 0 0 3px 2px, 0 0 5px 3px white, 0 0 7px 3px;
+          box-shadow: 0 0 3px 2px, 0 0 5px 3px white, 0 0 7px 3px;
   opacity: 100%;
 }
 
-button {
+.lightswitchContainer {
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  grid-row: 4 / span 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / span 1;
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
-  padding: 10px;
+  padding: 20px;
   border: 2px solid darkgrey;
+  border-radius: 20px;
   background-color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.lightswitchContainer label {
   color: darkgrey;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  font-family: 'Lobster', cursive;
+  font-size: 2rem;
+  text-align: left;
+}
+
+.lightswitchContainer input {
+  width: 40px;
+  height: 40px;
+}
+
+.lightswitchContainer input + label::before {
+  display: inline-block;
+  border: 2px solid darkgray;
+  content: ' ';
+  height: 40px;
+  width: 40px;
+  position: relative;
+  left: -30px;
 }
