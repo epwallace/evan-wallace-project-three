@@ -303,10 +303,9 @@ h1 {
       grid-template-rows: repeat(20, 1fr);
   -ms-grid-columns: (1fr)[20];
       grid-template-columns: repeat(20, 1fr);
-  grid-gap: 2px;
+  grid-gap: 5px;
   width: 100%;
-  background-color: darkgrey;
-  border: 2px solid darkgray;
+  background-color: black;
 }
 
 .square {
@@ -319,9 +318,10 @@ h1 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: black;
+  background-color: #222222;
   height: 100%;
   width: 100%;
+  border-radius: 50%;
 }
 
 /* color choices */
