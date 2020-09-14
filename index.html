@@ -104,8 +104,10 @@
             const gameBoardWidth = $('.board').width();
             $('.board').height(gameBoardWidth);
 
-            /* TODO: instead of a (28,28) grid, use dimensions that suit the initial viewport */
-            liteBrite.populateBoard(20, 20);
+            // calculate the appropriate grid size for the viewport
+            // TODO: 30px is kind of arbitrary.. which size is best? consider mobile.
+            const size = Math.floor(gameBoardWidth / 30);
+            liteBrite.populateBoard(size, size);
 
 
             // adjust dimensions of grid squares when window is resized
