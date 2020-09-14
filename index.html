@@ -126,23 +126,22 @@
             }
         }
 
+        // set the user's color selection
+        liteBrite.setColor = (colorSelection) => {
+                $('.colorChoice.active').removeClass('active');
+                colorSelection.addClass('active');
+        }
+
         liteBrite.init = function() {
             liteBrite.displayBoard();
-            // define variable to track color choice
-            // TODO: instead of tracking color state with a string, consider using checkboxes/radio buttons
-            let currentColor = 'red';
 
-            // update currentColor when user selects a color
+            // listen for window being resized
+            $(window).on('resize', liteBrite.resizeSquares);
+
+            // listen for color selection tiles being clicked
             $('.colorChoice').on('click', function() {
-                $('.colorChoice.active').removeClass('active');
-                $(this).addClass('active');
-                currentColor = $(this).attr("id");
+                liteBrite.setColor($(this));
             })
-
-            // adjust dimensions of grid squares when window is resized
-            $(window).on('resize', function() {
-                liteBrite.resizeSquares();
-            });
 
             // listen for grid squares being clicked
             $('.square').on('click', function() {
