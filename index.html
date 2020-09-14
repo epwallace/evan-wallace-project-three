@@ -97,6 +97,26 @@
             $('.board').css({'height': `${gameBoardWidth}px`});
         }
 
+        // add or remove dot from the given square
+        liteBrite.toggleDot = (square) => {
+            // if a dot is present in the square, remove it 
+            if (square.children().length > 0) {
+                   square.empty();
+                } else {
+                    // construct new dot with the correct color applied
+                    const currentColor = $('.colorChoice.active').attr('id');
+                    const newDot = $('<div class="dot">').addClass(currentColor);
+
+                    // if the lightswitch is on, make the new dot glow
+                    if ($('#lightswitch').prop('checked')) { 
+                        $(newDot).addClass('lightup');
+                    }
+
+                    // add the new dot to the DOM
+                    square.append(newDot);
+                }
+            }
+        
         // add or remove glow effect from dots depending on lightswitch state
         liteBrite.toggleLightswitch = () => {
             if ($('#lightswitch').prop('checked')) {
@@ -124,24 +144,10 @@
                 liteBrite.resizeSquares();
             });
 
-            // add or remove a dot when user clicks on a grid square
+            // listen for grid squares being clicked
             $('.square').on('click', function() {
-                // if a dot is present, remove it 
-                if ($(this).children().length > 0) {
-                   $(this).html('');
-                } else {
-                    // construct new dot node
-                    let newDot = $.parseHTML(`<div class="dot ${currentColor}"></div>`)[0];
-
-                    // if the lightswitch is on, make the new dot glow
-                    if ($('#lightswitch').prop('checked')) { 
-                        $(newDot).addClass('lightup');
-                    }
-
-                    // add the new dot to the DOM
-                    $(this).html(newDot);
-                }
-            })
+                liteBrite.toggleDot($(this));
+            });
 
             // listen for lightswitch being toggled
             $('#lightswitch').on('change', liteBrite.toggleLightswitch);
