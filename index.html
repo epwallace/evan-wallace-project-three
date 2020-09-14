@@ -97,6 +97,15 @@
             $('.board').css({'height': `${gameBoardWidth}px`});
         }
 
+        // add or remove glow effect from dots depending on lightswitch state
+        liteBrite.toggleLightswitch = () => {
+            if ($('#lightswitch').prop('checked')) {
+                $('.dot').addClass('lightup');
+            } else {
+                $('.dot').removeClass('lightup');
+            }
+        }
+
         liteBrite.init = function() {
             liteBrite.displayBoard();
             // define variable to track color choice
@@ -134,14 +143,8 @@
                 }
             })
 
-            // add or remove glow effect from all dots when the lightswitch is toggled
-            $('#lightswitch').change(function() {
-                if ($('#lightswitch').prop('checked')) {
-                    $('.dot').addClass('lightup');
-                } else {
-                    $('.dot').removeClass('lightup');
-                }
-            })
+            // listen for lightswitch being toggled
+            $('#lightswitch').on('change', liteBrite.toggleLightswitch);
         }
 
         $(document).ready(function() {
