@@ -45,8 +45,9 @@ h1 {
     margin-top: 50px;
 
     display: grid;
-    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
+    grid-gap: 50px;
 }
 
 /* lite bride grid */
@@ -152,7 +153,7 @@ h1 {
 
 /* lightswitch panel styles */
 .lightswitchPanel {
-    grid-column: 3 / span 1;
+    grid-column: 2 / span 1;
 
     input {
         width: 40px;
@@ -169,4 +170,13 @@ h1 {
         position: relative;
         left: -30px;
     }
+}
+
+.instructions {
+    grid-row: 2;
+    grid-column: 1 / span 2;
+
+    flex-direction: column;
+
+    text-transform: lowercase;
 }
