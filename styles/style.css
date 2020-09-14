@@ -264,18 +264,6 @@ h1 {
   margin: 50px 0;
 }
 
-.dot {
-  width: 40%;
-  height: 40%;
-  min-width: 5px;
-  max-width: 50px;
-  min-height: 10px;
-  max-height: 50px;
-  background-color: hotpink;
-  border-radius: 50%;
-  opacity: 50%;
-}
-
 .gameContainer {
   padding: 50px 0;
   display: -webkit-box;
@@ -324,7 +312,64 @@ h1 {
   background-color: #121212;
   height: 100%;
   width: 100%;
+  min-width: 15px;
+  min-height: 15px;
   border-radius: 50%;
+}
+
+.dot {
+  width: 40%;
+  height: 40%;
+  border-radius: 50%;
+  opacity: 50%;
+}
+
+/* styles for applying colors to dots */
+.red {
+  background-color: red;
+  color: red;
+}
+
+.orange {
+  background-color: orange;
+  color: orange;
+}
+
+.yellow {
+  background-color: yellow;
+  color: yellow;
+}
+
+.green {
+  background-color: lime;
+  color: lime;
+}
+
+.blue {
+  background-color: cyan;
+  color: cyan;
+}
+
+.purple {
+  background-color: rebeccapurple;
+  color: rebeccapurple;
+}
+
+.pink {
+  background-color: fuchsia;
+  color: fuchsia;
+}
+
+.white {
+  background-color: white;
+  color: white;
+}
+
+.lightup {
+  /* glow effect inspired by https://codersblock.com/blog/creating-glow-effects-with-css/ */
+  -webkit-box-shadow: 0 0 3px 2px, 0 0 5px 3px white, 0 0 7px 3px;
+          box-shadow: 0 0 3px 2px, 0 0 5px 3px white, 0 0 7px 3px;
+  opacity: 100%;
 }
 
 /* general style for a game control panel */
@@ -399,51 +444,4 @@ h1 {
   width: 40px;
   position: relative;
   left: -30px;
-}
-
-.red {
-  background-color: red;
-  color: red;
-}
-
-.orange {
-  background-color: orange;
-  color: orange;
-}
-
-.yellow {
-  background-color: yellow;
-  color: yellow;
-}
-
-.green {
-  background-color: lime;
-  color: lime;
-}
-
-.blue {
-  background-color: cyan;
-  color: cyan;
-}
-
-.purple {
-  background-color: rebeccapurple;
-  color: rebeccapurple;
-}
-
-.pink {
-  background-color: fuchsia;
-  color: fuchsia;
-}
-
-.white {
-  background-color: white;
-  color: white;
-}
-
-.lightup {
-  /* glow effect inspired by https://codersblock.com/blog/creating-glow-effects-with-css/ */
-  -webkit-box-shadow: 0 0 3px 2px, 0 0 5px 3px white, 0 0 7px 3px;
-          box-shadow: 0 0 3px 2px, 0 0 5px 3px white, 0 0 7px 3px;
-  opacity: 100%;
 }
