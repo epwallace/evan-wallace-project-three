@@ -509,3 +509,19 @@ footer a:hover {
     text-align: left;
   }
 }
+
+@media (max-width: 480px) {
+  /* switch footer text to column layout */
+  footer .panelText {
+    font-size: 1.9rem;
+    text-align: center;
+  }
+  footer a {
+    display: block;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    padding: 5px 10px;
+    margin: 10px auto;
+  }
+}
