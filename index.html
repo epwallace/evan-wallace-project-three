@@ -26,6 +26,7 @@
     </header>
 
     <main class="wrapper">
+        <!-- container for game instructions, controls, and board -->
         <div class="gameContainer">
 
             <!-- area for controlling colors and light effects -->
@@ -86,13 +87,10 @@
             const gameBoardWidth = $('.board').width();
 
             // resize game board's height to form a square
-            // TODO: this uses the same logic as resizeSquares; refactor to DRY code
             $('.board').height(gameBoardWidth);
 
-            // calculate the appropriate grid size for the viewport
+            // set the grid properties appropriately for the initial viewport
             const size = Math.floor(gameBoardWidth / 40);
-
-            // set the grid properties according to the calculated size
             $('.board').css({
                 'grid-template-columns': `repeat(${size}, 1fr`,
                 'grid-template-rows': `repeat(${size}, 1fr`
@@ -106,6 +104,7 @@
         }
 
         // make the height of grid squares equal to the width
+        // TODO: refactor to resizeBoard
         liteBrite.resizeSquares = () => {
             const newHeight = $(".square").width();
             $(".square").height(newHeight);
