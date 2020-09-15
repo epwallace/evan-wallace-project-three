@@ -34,7 +34,21 @@
 
                 <!-- colour selection panel -->
                 <div class="controlPanel colorSelectionPanel curvyBackground">
-                    <p class="panelText">choose a color</p>
+                    <label for="colorDropdown" class="panelText">choose a color</label>
+
+                    <!-- dropdown menu for color selection using keyboard-->
+                    <select name="colorDropdown" id="colorDropdown" class="visuallyHidden">
+                        <option value="red">red</option>
+                        <option value="orange">orange</option>
+                        <option value="yellow">yellow</option>
+                        <option value="green">green</option>
+                        <option value="blue">blue</option>
+                        <option value="purple">purple</option>
+                        <option value="pink">pink</option>
+                        <option value="white">white</option>
+                    </select>
+
+                    <!-- color tiles for color selection using mouse -->
                     <ul>
                         <li class="colorChoice red active" id="red"></li>
                         <li class="colorChoice orange" id="orange"></li>
