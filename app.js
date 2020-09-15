@@ -23,12 +23,11 @@ liteBrite.displayBoard = () => {
 }
 
 // make the height of grid squares equal to the width
-// TODO: refactor to resizeBoard
-liteBrite.resizeSquares = () => {
-    const newHeight = $(".square").width();
-    $(".square").height(newHeight);
+liteBrite.resizeBoard = () => {
+    const squareWidth = $(".square").width();
+    $(".square").height(squareWidth);
     const gameBoardWidth = $('.board').width();
-    $('.board').css({'height': `${gameBoardWidth}px`});
+    $('.board').height(gameBoardWidth);
 }
 
 // add or remove dot from the given square
@@ -70,7 +69,7 @@ liteBrite.init = function() {
     liteBrite.displayBoard();
 
     // listen for window being resized
-    $(window).on('resize', liteBrite.resizeSquares);
+    $(window).on('resize', liteBrite.resizeBoard);
 
     // listen for color selection tiles being clicked
     $('.colorChoice').on('click', function() {
