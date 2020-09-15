@@ -260,14 +260,14 @@ header {
 }
 
 h1 {
-  font-family: 'Lobster', cursive;
-  font-size: calc(1.5rem + (20 - 1.5) * (100vw - 320px) / (1200 - 320));
   width: 100%;
-  text-align: center;
   padding: 50px;
+  margin-top: 50px;
   border-radius: 20px;
   border: 3px solid #2a2a2a;
-  margin-top: 50px;
+  font-family: 'Lobster', cursive;
+  font-size: calc(1.5rem + (20 - 1.5) * (100vw - 320px) / (1200 - 320));
+  text-align: center;
 }
 
 .gameContainer {
@@ -280,7 +280,6 @@ h1 {
           flex-direction: column;
 }
 
-/* gameplay controls */
 .gameControls {
   margin-top: 50px;
   display: -ms-grid;
@@ -292,17 +291,10 @@ h1 {
   grid-gap: 50px;
 }
 
-/* lite bride grid */
+/* lite-brite grid */
 .board {
-  margin: 50px auto;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: (1fr)[20];
-      grid-template-rows: repeat(20, 1fr);
-  -ms-grid-columns: (1fr)[20];
-      grid-template-columns: repeat(20, 1fr);
-  grid-gap: 5px;
   width: 100%;
+  margin: 50px auto;
   /* This is a design choice.
        The user's initial viewport determines the size of their grid.
        If a user starts with a large viewport and resizes to mobile,
@@ -311,9 +303,23 @@ h1 {
        If outer squares/dots are removed to shrink the board size, the user's art might be lost.
        I consider permitting scrolling in the game board to be the best solution in this situation. */
   overflow: scroll;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (1fr)[20];
+      grid-template-rows: repeat(20, 1fr);
+  -ms-grid-columns: (1fr)[20];
+      grid-template-columns: repeat(20, 1fr);
+  grid-gap: 5px;
 }
 
+/* clickable "squares" of the lite-brite grid */
 .square {
+  background-color: #121212;
+  width: 100%;
+  min-width: 15px;
+  height: 100%;
+  min-height: 15px;
+  border-radius: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -323,12 +329,6 @@ h1 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #121212;
-  height: 100%;
-  width: 100%;
-  min-width: 15px;
-  min-height: 15px;
-  border-radius: 50%;
 }
 
 .dot {
@@ -418,21 +418,21 @@ h1 {
 }
 
 .colorSelectionPanel ul {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
   -ms-grid-rows: (1fr)[2];
       grid-template-rows: repeat(2, 1fr);
-  width: -webkit-min-content;
-  width: -moz-min-content;
-  width: min-content;
 }
 
 .colorChoice {
-  margin: 5px;
   width: 30px;
   height: 30px;
+  margin: 5px;
 }
 
 .colorChoice.active, .colorChoice:hover {
@@ -462,15 +462,15 @@ h1 {
 }
 
 .instructions {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -ms-grid-row: 2;
   grid-row: 2;
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-column: 1 / span 2;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   text-transform: lowercase;
 }
 
