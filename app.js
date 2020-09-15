@@ -51,7 +51,7 @@ liteBrite.toggleDot = (square) => {
     }
 
 // add or remove glow effect from dots depending on lightswitch state
-liteBrite.toggleLightswitch = () => {
+liteBrite.toggleGlow = () => {
     if ($('#lightswitch').prop('checked')) {
         $('.dot').addClass('lightup');
     } else {
@@ -82,7 +82,7 @@ liteBrite.init = function() {
     });
 
     // listen for lightswitch being toggled
-    $('#lightswitch').on('change', liteBrite.toggleLightswitch);
+    $('#lightswitch').on('change', liteBrite.toggleGlow);
 }
 
 $(document).ready(function() {
