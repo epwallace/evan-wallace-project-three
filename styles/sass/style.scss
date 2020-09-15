@@ -256,6 +256,12 @@ footer {
 }
 
 @media (max-width: 480px) {
+    /* reduce congestion in the color selection panel */
+    .colorChoice {
+        width: 22px;
+        height: 22px;
+    }
+
     /* switch footer text to column layout */
     footer {
         .panelText {
