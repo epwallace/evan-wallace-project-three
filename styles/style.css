@@ -451,16 +451,6 @@ h1 {
   height: 40px;
 }
 
-.lightswitchPanel input + label::before {
-  display: inline-block;
-  border: 2px solid #eee;
-  content: ' ';
-  height: 40px;
-  width: 40px;
-  position: relative;
-  left: -30px;
-}
-
 .instructions {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
