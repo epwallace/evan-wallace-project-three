@@ -61,6 +61,15 @@ h1 {
     grid-template-columns: repeat(20, 1fr);
     grid-gap: 5px;
     width: 100%;
+    
+    /* This is a design choice.
+       The user's initial viewport determines the size of their grid.
+       If a user starts with a large viewport and resizes to mobile,
+       the default square/dot size will cause the game board to break out of its container.
+       If the squares/dots are allowed to shrink, they will be too small to click easily.
+       If outer squares/dots are removed to shrink the board size, the user's art might be lost.
+       I consider permitting scrolling in the game board to be the best solution in this situation. */
+    overflow: scroll;
 }
 
 .square {
