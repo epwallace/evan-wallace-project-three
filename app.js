@@ -65,16 +65,44 @@ liteBrite.setColor = (colorSelection) => {
         colorSelection.addClass('active');
 }
 
+// hide and show color tiles
+liteBrite.hideColorTiles = () => {
+    $('#colorTiles').hide();
+}
+
+liteBrite.showColorTiles = () => {
+    $('#colorTiles').show();
+}
+
+// propagate color choices made through the dropdown menu to the color selection tiles
+liteBrite.propagateKeyboardColorChoice = () => {
+    // determine which color was selected in the dropdown
+    const selection = ($('#colorDropdown').val());
+
+    // select color tile with ID matching the value from the dropdown
+    const colorTile = $(`#${selection}`);
+
+    // set the active color as the color tile had been clicked by mouse
+    liteBrite.setColor(colorTile);
+}
+
 liteBrite.init = function() {
     liteBrite.displayBoard();
 
     // listen for window being resized
     $(window).on('resize', liteBrite.resizeBoard);
 
+    // listen for dropdown menu being focused and unfocused
+    $('#colorDropdown').on('focus', liteBrite.hideColorTiles);
+    $('#colorDropdown').on('focusout', liteBrite.showColorTiles);
+
+    // listen for color choice from the keyboard-accessible dropdown menu
+    $('#colorDropdown').on('change', this.propagateKeyboardColorChoice);
+
     // listen for color selection tiles being clicked
     $('.colorChoice').on('click', function() {
         liteBrite.setColor($(this));
-    })
+    });
 
     // listen for grid squares being clicked
     $('.square').on('click', function() {
