@@ -202,3 +202,22 @@ footer {
         }
     }
 }
+
+@media (max-width: 800px) {
+    /* switch to column layout */
+    .gameControls {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .controlPanel {
+        flex-basis: 100%;
+    }
+
+    .instructions {
+        align-items: flex-start;
+    }
+    .instructions p {
+        text-align: left;
+    }
+}
