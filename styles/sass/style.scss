@@ -207,7 +207,13 @@ h1 {
     grid-column: 1 / span 2;
 
     // text properties
+    text-align: center;
     text-transform: lowercase;
+
+    /* add spacing between paragraphs */
+    p:first-child {
+        margin-bottom: 20px;
+    }
 }
 
 footer {

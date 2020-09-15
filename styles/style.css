@@ -471,7 +471,13 @@ h1 {
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-column: 1 / span 2;
+  text-align: center;
   text-transform: lowercase;
+  /* add spacing between paragraphs */
+}
+
+.instructions p:first-child {
+  margin-bottom: 20px;
 }
 
 footer {
@@ -522,6 +528,11 @@ footer a:hover {
 }
 
 @media (max-width: 480px) {
+  /* reduce congestion in the color selection panel */
+  .colorChoice {
+    width: 22px;
+    height: 22px;
+  }
   /* switch footer text to column layout */
   footer .panelText {
     font-size: 1.9rem;
