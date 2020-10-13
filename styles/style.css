@@ -302,7 +302,7 @@ h1 {
        If the squares/dots are allowed to shrink, they will be too small to click easily.
        If outer squares/dots are removed to shrink the board size, the user's art might be lost.
        I consider permitting scrolling in the game board to be the best solution in this situation. */
-  overflow: scroll;
+  overflow: hidden;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: (1fr)[20];
